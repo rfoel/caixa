@@ -1,5 +1,5 @@
-import React, { createContext, useEffect, useState } from 'react'
 import * as CSS from 'csstype'
+import React, { createContext, useEffect, useState } from 'react'
 
 type Breakpoint = 'mobile' | 'tablet' | 'desktop'
 
@@ -67,7 +67,7 @@ export const ThemeProvider = ({ children, value }: ThemeProviderProps) => {
 
     const check = () => {
       const currentMediaQueryIndex = mediaQueryList.findIndex(
-        mediaQuery => mediaQuery.matches,
+        (mediaQuery) => mediaQuery.matches,
       )
 
       if (currentMediaQueryIndex >= 0) {
@@ -77,18 +77,18 @@ export const ThemeProvider = ({ children, value }: ThemeProviderProps) => {
       }
     }
 
-    mediaQueryList.forEach(mediaQuery => {
+    mediaQueryList.forEach((mediaQuery) => {
       mediaQuery.addEventListener('change', check)
     })
 
     check()
 
     return () => {
-      mediaQueryList.forEach(mediaQuery => {
+      mediaQueryList.forEach((mediaQuery) => {
         mediaQuery.removeEventListener('change', check)
       })
     }
-  }, [])
+  }, [theme.breakpoints])
 
   return (
     <ThemeContext.Provider value={{ ...theme, currentBreakpoint }}>
