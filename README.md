@@ -13,21 +13,26 @@ npm install caixa
 ## Usage
 
 ```jsx
-import { Box, ThemeProvider, useBreakpoint } from 'caixa'
+import { Box, useBreakpoint } from 'caixa'
 
-const Example = () => {
+export default function App() {
   const breakpoint = useBreakpoint()
 
   return (
     <Box
       alignItems="center"
-      backgroundColor={{ mobile: 'teal', tablet: 'red', desktop: 'yellow' }}
-      color={{ mobile: 'blue', tablet: 'purple', desktop: 'brown' }}
+      backgroundColor={{
+        mobile: '#8be9fd',
+        tablet: '#50fa7b',
+        desktop: '#ffb86c',
+      }}
+      color="#282a36"
       display="flex"
       height="50px"
       justifyContent="center"
       margin="0 auto"
-      width={{ mobile: '100%', tablet: '300px', desktop: '600px' }}
+      textTransform="capitalize"
+      width={{ mobile: '100%', tablet: 8, desktop: '600px' }}
     >
       {breakpoint}
     </Box>

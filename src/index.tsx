@@ -34,7 +34,7 @@ const defaultTheme = {
 
 type ThemeProviderProps = {
   children?: React.ReactNode
-  value: {
+  theme?: {
     currentBreakpoint?: Breakpoint
     breakpoints: {
       mobile: number
@@ -44,14 +44,14 @@ type ThemeProviderProps = {
   }
 }
 
-const ThemeContext = createContext<ThemeProviderProps['value']>(defaultTheme)
+const ThemeContext = createContext<ThemeProviderProps['theme']>(defaultTheme)
 
-export const ThemeProvider = ({ children, value }: ThemeProviderProps) => {
-  const theme = { ...defaultTheme, ...value }
+export const ThemeProvider = ({ children, theme }: ThemeProviderProps) => {
+  const mergedTheme = { ...defaultTheme, ...theme }
   const [currentBreakpoint, setCurrentBreakpoint] = useState<Breakpoint>()
 
   useEffect(() => {
-    const mediaQueryList = Object.values(theme.breakpoints).map(
+    const mediaQueryList = Object.values(mergedTheme.breakpoints).map(
       (value, index, array) => {
         const minWidth = value
 
@@ -72,7 +72,9 @@ export const ThemeProvider = ({ children, value }: ThemeProviderProps) => {
 
       if (currentMediaQueryIndex >= 0) {
         setCurrentBreakpoint(
-          Object.keys(theme.breakpoints)[currentMediaQueryIndex] as Breakpoint,
+          Object.keys(mergedTheme.breakpoints)[
+            currentMediaQueryIndex
+          ] as Breakpoint,
         )
       }
     }
@@ -88,10 +90,10 @@ export const ThemeProvider = ({ children, value }: ThemeProviderProps) => {
         mediaQuery.removeEventListener('change', check)
       })
     }
-  }, [theme.breakpoints])
+  }, [mergedTheme.breakpoints])
 
   return (
-    <ThemeContext.Provider value={{ ...theme, currentBreakpoint }}>
+    <ThemeContext.Provider value={{ ...mergedTheme, currentBreakpoint }}>
       {children}
     </ThemeContext.Provider>
   )
@@ -99,6 +101,7 @@ export const ThemeProvider = ({ children, value }: ThemeProviderProps) => {
 
 export const useTheme = () => {
   const context = React.useContext(ThemeContext)
+
   if (context === undefined) {
     throw new Error('useTheme must be used within a ThemeProvider')
   }
