@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/rfoel/caixa/compare/v1.1.0...v2.0.0) (2023-06-10)
+
+
+### Features
+
+* create components for each HTML tag ([846651a](https://github.com/rfoel/caixa/commit/846651a0e58933889d3385714ad148938ab1e8a8))
+
+
+### BREAKING CHANGES
+
+* Box component no longer exists.
+
 # [1.1.0](https://github.com/rfoel/caixa/compare/v1.0.0...v1.1.0) (2023-01-19)
 
 
