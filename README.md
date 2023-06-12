@@ -1,6 +1,6 @@
 # caixa 📦
 
-HTML components as React Components with fully typed inline CSS. Also, comes with responsive props using the native [matchMedia](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) method.
+React Component with fully typed inline CSS. Also, comes with responsive props using the native [matchMedia](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) method.
 
 [![NPM version](https://badge.fury.io/js/caixa.svg)](http://badge.fury.io/js/caixa)
 
