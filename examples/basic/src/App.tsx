@@ -1,10 +1,10 @@
-import { Button, Div, useBreakpoint } from 'caixa'
+import { Box, useBreakpoint } from 'caixa'
 
 export default function App() {
   const breakpoint = useBreakpoint()
 
   return (
-    <Div
+    <Box
       alignItems="center"
       backgroundColor={{
         mobile: '#8be9fd',
@@ -22,7 +22,8 @@ export default function App() {
       width={{ mobile: '100%', tablet: '400px', desktop: '600px' }}
     >
       {breakpoint}
-      <Button
+      <Box
+        as="button"
         backgroundColor="tomato"
         border="0"
         padding={1}
@@ -31,7 +32,7 @@ export default function App() {
         }}
       >
         Click Me
-      </Button>
-    </Div>
+      </Box>
+    </Box>
   )
 }

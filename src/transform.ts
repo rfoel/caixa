@@ -1,6 +1,6 @@
 import * as CSS from 'csstype'
 
-import { isCSSProperty } from './properties'
+import { isCSSProperty } from './css'
 import { ThemeProviderProps } from './theme'
 
 type CSSPropertyValue = string | number

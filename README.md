@@ -40,16 +40,16 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 > The theme in the example above is already set by default, it can be omitted if it fits your needs.
 
-Then, you can start using the components provided by `caixa 📦` .
+Then, you can start using the `Box` component provided by `caixa` 📦. By default, the `Box` component will behave and have the properties of a HTML div, so to make it render as an HTML input or a HTML button, use the `as` property like the example below.
 
 ```jsx
-import { Button, Div, useBreakpoint } from 'caixa'
+import { Box, useBreakpoint } from 'caixa'
 
 export default function App() {
   const breakpoint = useBreakpoint()
 
   return (
-    <Div
+    <Box
       alignItems="center"
       backgroundColor={{
         mobile: '#8be9fd',
@@ -67,7 +67,8 @@ export default function App() {
       width={{ mobile: '100%', tablet: '400px', desktop: '600px' }}
     >
       {breakpoint}
-      <Button
+      <Box
+        as="button"
         backgroundColor="tomato"
         border="0"
         onClick={() => {
@@ -76,8 +77,8 @@ export default function App() {
         padding={1}
       >
         Click Me
-      </Button>
-    </Div>
+      </Box>
+    </Box>
   )
 }
 ```
