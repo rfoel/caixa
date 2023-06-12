@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/rfoel/caixa/compare/v2.0.0...v3.0.0) (2023-06-12)
+
+
+### Features
+
+* export only the Box component ([16f091c](https://github.com/rfoel/caixa/commit/16f091c501333806f30d5003383b28041441c7e2))
+
+
+### BREAKING CHANGES
+
+* no longer create a million components to behave similarly.
+
 # [2.0.0](https://github.com/rfoel/caixa/compare/v1.1.0...v2.0.0) (2023-06-10)
 
 
