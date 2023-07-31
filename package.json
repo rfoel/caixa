@@ -43,7 +43,7 @@
     "@types/react-dom": "^18.2.4",
     "csstype": "^3.1.2",
     "esbuild": "^0.17.19",
-    "eslint": "^8.42.0",
+    "eslint": "^8.46.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-import": "^2.27.5",
