@@ -3,7 +3,7 @@ import { createElement } from 'react'
 import { useTheme } from './theme'
 import { CSSResponsiveProperties, getProps } from './transform'
 
-type BoxProps = React.FunctionComponent<
+export type BoxProps = React.FunctionComponent<
   (
     | ({ as?: 'a' } & React.AnchorHTMLAttributes<HTMLAnchorElement>)
     | ({ as?: 'area' } & React.AreaHTMLAttributes<HTMLAreaElement>)
