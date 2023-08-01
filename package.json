@@ -1,6 +1,6 @@
 {
   "name": "caixa",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "React Component with fully typed inline CSS",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",

@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/rfoel/caixa/compare/v3.0.0...v3.0.1) (2023-08-01)
+
+
+### Bug Fixes
+
+* export BoxProps ([7374a34](https://github.com/rfoel/caixa/commit/7374a3423941b9e69002b8a0eb33f92d2416069e))
+
 # [3.0.0](https://github.com/rfoel/caixa/compare/v2.0.0...v3.0.0) (2023-06-12)
 
 
