@@ -19,7 +19,7 @@ export type CSSResponsiveProperties = {
     | CSSPropertyByBreakpoint<CSSProperties[K]>
 }
 
-const maybeTransformNumberToREM = (input?: any) => {
+const maybeTransformNumberToREM = (input?: string | number) => {
   if (typeof input === 'string') return input
   if (typeof input === 'number') return `${input}rem`
   return undefined
@@ -53,7 +53,7 @@ const getNonStyleProps = (props: Record<string, unknown>) =>
   }, {})
 
 export const getProps =
-  (theme: ThemeProviderProps['theme']) => (props: Record<string, any>) => {
+  (theme: ThemeProviderProps['theme']) => (props: Record<string, unknown>) => {
     const style = transform(theme)(getStyleProps(props))
     const rest = getNonStyleProps(props)
     return { style, ...rest }
