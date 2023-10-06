@@ -120,7 +120,7 @@ export type BoxProps = (
         | 'wbr'
     } & React.HTMLAttributes<HTMLElement>)
 ) &
-  CSSResponsiveProperties
+  CSSResponsiveProperties & { ref?: React.Ref<HTMLElement> }
 
 export const Box: React.FunctionComponent<BoxProps> = forwardRef(
   ({ as = 'div', ...props }, ref) => {
