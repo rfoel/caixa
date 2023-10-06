@@ -1,3 +1,10 @@
+## [3.0.3](https://github.com/rfoel/caixa/compare/v3.0.2...v3.0.3) (2023-10-06)
+
+
+### Bug Fixes
+
+* allow refs ([9ceb80b](https://github.com/rfoel/caixa/commit/9ceb80b9a40d46ae54805f0d4662d407e3f89716))
+
 ## [3.0.2](https://github.com/rfoel/caixa/compare/v3.0.1...v3.0.2) (2023-09-22)
 
 
