@@ -1,4 +1,4 @@
-import { createElement } from 'react'
+import { createElement, forwardRef } from 'react'
 
 import { useTheme } from './theme'
 import { CSSResponsiveProperties, getProps } from './transform'
@@ -122,12 +122,11 @@ export type BoxProps = (
 ) &
   CSSResponsiveProperties
 
-export const Box: React.FunctionComponent<BoxProps> = ({
-  as = 'div',
-  ...props
-}) => {
-  const theme = useTheme()
-  return createElement(as, getProps(theme)(props))
-}
+export const Box: React.FunctionComponent<BoxProps> = forwardRef(
+  ({ as = 'div', ...props }, ref) => {
+    const theme = useTheme()
+    return createElement(as, { ref, ...getProps(theme)(props) })
+  },
+)
 
 export * from './theme'
