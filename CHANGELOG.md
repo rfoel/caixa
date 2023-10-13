@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/rfoel/caixa/compare/v3.0.4...v3.1.0) (2023-10-13)
+
+
+### Features
+
+* add colors and make breakpoints generic ([542a072](https://github.com/rfoel/caixa/commit/542a07209c46845f1f61b9920e6ad70cab1ab6f3))
+
 ## [3.0.4](https://github.com/rfoel/caixa/compare/v3.0.3...v3.0.4) (2023-10-06)
 
 
