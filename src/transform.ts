@@ -6,9 +6,7 @@ import { ThemeProviderProps } from './theme'
 type CSSPropertyValue = string | number
 
 type CSSPropertyByBreakpoint<T> = {
-  mobile?: T
-  tablet?: T
-  desktop?: T
+  [key: string]: T
 }
 
 type CSSProperties = CSS.Properties<CSSPropertyValue>
@@ -19,8 +17,11 @@ export type CSSResponsiveProperties = {
     | CSSPropertyByBreakpoint<CSSProperties[K]>
 }
 
-const maybeTransformNumberToREM = (input?: string | number) => {
-  if (typeof input === 'string') return input
+const replaceValue = (
+  theme: ThemeProviderProps['theme'],
+  input?: string | number,
+) => {
+  if (typeof input === 'string') return theme?.colors?.[input] ?? input
   if (typeof input === 'number') return `${input}rem`
   return undefined
 }
@@ -32,8 +33,8 @@ const transform =
     return Object.fromEntries(
       Object.entries(props).map(([key, value]) =>
         typeof value === 'object'
-          ? [key, maybeTransformNumberToREM(value[currentBreakpoint])]
-          : [key, maybeTransformNumberToREM(value)],
+          ? [key, replaceValue(theme, value[currentBreakpoint])]
+          : [key, replaceValue(theme, value)],
       ),
     )
   }

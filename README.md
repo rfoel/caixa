@@ -27,6 +27,9 @@ const theme = {
     tablet: 600,
     desktop: 1200,
   },
+  colors: {
+    brand: '#1e31e3',
+  },
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -69,7 +72,7 @@ export default function App() {
       {breakpoint}
       <Box
         as="button"
-        backgroundColor="tomato"
+        backgroundColor="brand"
         border="0"
         onClick={() => {
           alert('I have been clicked!')

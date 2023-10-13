@@ -7,9 +7,9 @@ export default function App() {
     <Box
       alignItems="center"
       backgroundColor={{
-        mobile: '#8be9fd',
-        tablet: '#50fa7b',
-        desktop: '#ffb86c',
+        sm: '#8be9fd',
+        md: '#50fa7b',
+        lg: '#ffb86c',
       }}
       color="#282a36"
       display="flex"
@@ -19,12 +19,13 @@ export default function App() {
       margin="0 auto"
       padding={1}
       textTransform="capitalize"
-      width={{ mobile: '100%', tablet: '400px', desktop: '600px' }}
+      width={{ sm: '100%', md: '400px', lg: '600px' }}
     >
       {breakpoint}
       <Box
         as="button"
-        backgroundColor="tomato"
+        color="white"
+        backgroundColor="brand"
         border="0"
         padding={1}
         onClick={() => {

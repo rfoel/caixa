@@ -1,7 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
 
-type Breakpoint = 'mobile' | 'tablet' | 'desktop'
-
 const defaultTheme = {
   breakpoints: {
     mobile: 0,
@@ -13,11 +11,12 @@ const defaultTheme = {
 export type ThemeProviderProps = {
   children?: React.ReactNode
   theme?: {
-    currentBreakpoint?: Breakpoint
+    currentBreakpoint?: string
     breakpoints: {
-      mobile: number
-      tablet: number
-      desktop: number
+      [key: string]: string | number
+    }
+    colors?: {
+      [key: string]: string
     }
   }
 }
@@ -26,7 +25,7 @@ const ThemeContext = createContext<ThemeProviderProps['theme']>(defaultTheme)
 
 export const ThemeProvider = ({ children, theme }: ThemeProviderProps) => {
   const mergedTheme = { ...defaultTheme, ...theme }
-  const [currentBreakpoint, setCurrentBreakpoint] = useState<Breakpoint>()
+  const [currentBreakpoint, setCurrentBreakpoint] = useState<string>()
 
   useEffect(() => {
     const mediaQueryList = Object.values(mergedTheme.breakpoints).map(
@@ -50,9 +49,7 @@ export const ThemeProvider = ({ children, theme }: ThemeProviderProps) => {
 
       if (currentMediaQueryIndex >= 0) {
         setCurrentBreakpoint(
-          Object.keys(mergedTheme.breakpoints)[
-            currentMediaQueryIndex
-          ] as Breakpoint,
+          Object.keys(mergedTheme.breakpoints)[currentMediaQueryIndex],
         )
       }
     }
@@ -80,9 +77,10 @@ export const ThemeProvider = ({ children, theme }: ThemeProviderProps) => {
 export const useTheme = () => {
   const context = React.useContext(ThemeContext)
 
-  if (context === undefined) {
+  if (!context) {
     throw new Error('useTheme must be used within a ThemeProvider')
   }
+
   return context
 }
 
